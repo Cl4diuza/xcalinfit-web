@@ -11,6 +11,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { FoodListComponent } from './food/food-list/food-list.component';
 import { FoodDetailComponent } from './food/food-detail/food-detail.component';
 import { FoodItemComponent } from './food/food-list/food-item/food-item.component';
+import { CalintakeComponent } from './calintake/calintake.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FoodItemComponent } from './food/food-list/food-item/food-item.componen
     FoodListComponent,
     FoodDetailComponent,
     FoodItemComponent,
+    CalintakeComponent,
   ],
   imports: [
     BrowserModule,

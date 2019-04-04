@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Food } from './../food/food.model';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +15,13 @@ export class ApiService {
   public getFood(): Observable<Food[]> {
     const headers = new HttpHeaders();
     this.headers = headers.set('Content-Type', 'appplication/json');
+
     return this.http.get<Food[]>('http://localhost:40010/food/all', {
       headers: this.headers
     });
   }
 
-  postFood() {
+  public CreateFood() {
     this.http
       .put('http://127.0.0.1:3000/customers/1', {
         name: 'NewCustomer001',

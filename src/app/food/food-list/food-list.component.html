@@ -3,15 +3,9 @@
     <button class="btn btn-success">New Food</button>
   </div>
 </div>
+<hr />
 <div class="row">
   <div class="col-xs-12">
-    <a href="" class="list-group-item clearfix" *ngFor="let food of foods">
-      <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ food.name }}</h4>
-        <p class="list-group-item-text">{{ food.content }}</p>
-      </div>
-      <span class="pull-right">Content</span>
-    </a>
-    <app-food-item></app-food-item>
+    <app-food-item *ngFor="let foodEl of foods" [food]="foodEl"></app-food-item>
   </div>
 </div>

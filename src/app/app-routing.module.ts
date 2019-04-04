@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FoodComponent } from './food/food.component';
-import { AuthComponent } from './auth/auth.component';
+import { CalintakeComponent } from './calintake/calintake.component';
+
 const appRoutes: Routes = [
   { path: '', redirectTo: '/foods', pathMatch: 'full' },
-  { path: 'foods', component: FoodComponent},
-  { path: 'auth', component: AuthComponent }
+  { path: 'foods', component: FoodComponent },
+  { path: 'calculate', component: CalintakeComponent }
   // { path: 'signup', component: SignupComponent },
   // { path: 'signin', component: SigninComponent }
 ];
@@ -14,4 +15,4 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
