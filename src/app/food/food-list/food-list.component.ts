@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { FoodService } from './../../services/food.service';
 import { Component, OnInit } from '@angular/core';
 import { Food } from './../food.model';
@@ -10,9 +11,17 @@ import { Food } from './../food.model';
 export class FoodListComponent implements OnInit {
   foods: Food[] = [];
 
-  constructor(private foodService: FoodService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private foodService: FoodService
+  ) {}
 
   ngOnInit() {
     this.foods = this.foodService.getFoods();
+  }
+
+  onNewFood() {
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 }

@@ -13,6 +13,8 @@ import { FoodDetailComponent } from './food/food-detail/food-detail.component';
 import { FoodItemComponent } from './food/food-list/food-item/food-item.component';
 import { CalintakeComponent } from './calintake/calintake.component';
 import { FoodStartComponent } from './food/food-start/food-start.component';
+import { FoodEditComponent } from './food/food-edit/food-edit.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,16 @@ import { FoodStartComponent } from './food/food-start/food-start.component';
     FoodItemComponent,
     CalintakeComponent,
     FoodStartComponent,
+    FoodEditComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

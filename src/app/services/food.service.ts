@@ -7,7 +7,7 @@ import { Food } from './../food/food.model';
   providedIn: 'root'
 })
 export class FoodService implements OnInit {
-  foodSelected = new EventEmitter<Food>();
+  // foodSelected = new EventEmitter<Food>();
 
   private foods: Food[] = [
     new Food('1', 'Pizza', 'Calories: 500'),

@@ -1,6 +1,6 @@
 import { FoodService } from './../../services/food.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Food } from './../food.model';
 
@@ -14,7 +14,8 @@ export class FoodDetailComponent implements OnInit {
   id: string;
   constructor(
     private foodService: FoodService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -22,5 +23,9 @@ export class FoodDetailComponent implements OnInit {
       this.id = params.id;
       this.food = this.foodService.getFood(this.id);
     });
+  }
+
+  onEditFood() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
   }
 }

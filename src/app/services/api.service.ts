@@ -21,14 +21,12 @@ export class ApiService {
     });
   }
 
-  public CreateFood() {
+  public createFood() {
     this.http
-      .put('http://127.0.0.1:3000/customers/1', {
-        name: 'NewCustomer001',
-
-        email: 'newcustomer001@email.com',
-
-        tel: '0000252525'
+      .post('http://localhost:40010/food/create', {
+        id: '1',
+        name: 'Joke',
+        content: 'Calories: 200'
       })
       .subscribe(
         data => {
