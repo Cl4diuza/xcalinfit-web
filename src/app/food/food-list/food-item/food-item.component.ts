@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { Food } from './../../food.model';
 
@@ -9,8 +9,7 @@ import { Food } from './../../food.model';
 })
 export class FoodItemComponent implements OnInit {
   @Input() food: Food;
-
-  constructor() {}
+  @Input() id: string;
 
   ngOnInit() {}
 }

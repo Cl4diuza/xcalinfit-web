@@ -1,4 +1,4 @@
-import { ApiService } from './../../services/api.service';
+import { FoodService } from './../../services/food.service';
 import { Component, OnInit } from '@angular/core';
 import { Food } from './../food.model';
 
@@ -10,13 +10,9 @@ import { Food } from './../food.model';
 export class FoodListComponent implements OnInit {
   foods: Food[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private foodService: FoodService) {}
 
   ngOnInit() {
-    this.apiService.getFood().subscribe(res => {
-      this.foods = res;
-    });
+    this.foods = this.foodService.getFoods();
   }
-
-  getDocument() {}
 }

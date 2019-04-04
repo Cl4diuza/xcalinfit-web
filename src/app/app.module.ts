@@ -12,6 +12,7 @@ import { FoodListComponent } from './food/food-list/food-list.component';
 import { FoodDetailComponent } from './food/food-detail/food-detail.component';
 import { FoodItemComponent } from './food/food-list/food-item/food-item.component';
 import { CalintakeComponent } from './calintake/calintake.component';
+import { FoodStartComponent } from './food/food-start/food-start.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CalintakeComponent } from './calintake/calintake.component';
     FoodDetailComponent,
     FoodItemComponent,
     CalintakeComponent,
+    FoodStartComponent,
   ],
   imports: [
     BrowserModule,

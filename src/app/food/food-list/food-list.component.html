@@ -6,6 +6,10 @@
 <hr />
 <div class="row">
   <div class="col-xs-12">
-    <app-food-item *ngFor="let foodEl of foods" [food]="foodEl"></app-food-item>
+    <app-food-item
+      *ngFor="let foodEl of foods"
+      [food]="foodEl"
+      [id]="foodEl.id"
+    ></app-food-item>
   </div>
 </div>
