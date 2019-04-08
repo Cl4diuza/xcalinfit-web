@@ -1,3 +1,100 @@
-<p>
-  calintake works!
-</p>
+<div class="row">
+  <div class="col-xs-6 list-group-item clearfix">
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="weight">Weight (kg)</label>
+          <input
+            type="text"
+            id="weight"
+            formControlName="weight"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="height">Height (cm)</label>
+          <input
+            type="text"
+            id="height"
+            formControlName="height"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input
+            type="text"
+            id="age"
+            formControlName="age"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="form-group">
+          <label for="protein">Your goal</label>
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="minExercise"
+              name="minExercise"
+              checked
+            />
+            <label class="custom-control-label" for="minExercise"
+              >Minimum Exercise - 0-</label
+            >
+          </div>
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="avgExercise"
+              name="avgExercise"
+            />
+            <label class="custom-control-label" for="avgExercise"
+              >Average Exercise</label
+            >
+          </div>
+          <div class="custom-control custom-radio">
+            <input
+              type="radio"
+              class="custom-control-input"
+              id="maxExercise"
+              name="maxExercise"
+            />
+            <label class="custom-control-label" for="maxExercise"
+              >Maxiumum Exercise</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="submit" class="btn btn-primary">Calculate</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6 list-group-item clearfix">
+    <p>Total calories intake: 2000 Cal/Day</p>
+    <p>Protein intake: 120g/Day , 480 cal</p>
+    <p>Carbohydrate intake: 200g/Day, 800 cal</p>
+    <p>Fat intake: 60g/Day, 540 cal</p>
+    <div class="row">
+      <div class="col-xs-12">
+        <button class="btn btn-success pull-center">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -37,15 +37,27 @@ export class FoodEditComponent implements OnInit {
   private initForm() {
     let foodName = '';
     let foodContent = '';
+    let foodCalories;
+    let foodProtein;
+    let foodCarb;
+    let foodFat;
 
     if (this.editMode) {
       foodName = this.foodService.getFood(this.id).name;
       foodContent = this.foodService.getFood(this.id).content;
+      foodCalories = this.foodService.getFood(this.id).calories;
+      foodProtein = this.foodService.getFood(this.id).protein;
+      foodCarb = this.foodService.getFood(this.id).carb;
+      foodFat = this.foodService.getFood(this.id).fat;
     }
 
     this.foodForm = new FormGroup({
       name: new FormControl(foodName),
-      content: new FormControl(foodContent)
+      content: new FormControl(foodContent),
+      cal: new FormControl(foodCalories),
+      protein: new FormControl(foodProtein),
+      carb: new FormControl(foodCarb),
+      fat: new FormControl(foodFat)
     });
   }
 }
