@@ -9,7 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class CalintakeComponent implements OnInit {
   calForm: FormGroup;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.initForm();
@@ -20,10 +20,12 @@ export class CalintakeComponent implements OnInit {
   }
   private initForm() {
     this.calForm = new FormGroup({
+      goal: new FormControl(),
+      sex: new FormControl(),
       weight: new FormControl(),
       height: new FormControl(),
       age: new FormControl(),
-      exercise: new FormControl
+      exercise: new FormControl()
     });
   }
 }

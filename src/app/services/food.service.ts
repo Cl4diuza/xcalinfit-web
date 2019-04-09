@@ -7,8 +7,6 @@ import { Food } from './../food/food.model';
   providedIn: 'root'
 })
 export class FoodService implements OnInit {
-  // foodSelected = new EventEmitter<Food>();
-
   private foods: Food[] = [
     new Food(
       '1',
@@ -65,6 +63,16 @@ export class FoodService implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {}
+
+  async fetchData() {
+    await this.apiService.getFood().subscribe(data => {
+      this.setFood(data);
+    });
+  }
+
+  setFood(food) {
+    this.foods = food;
+  }
 
   getFoods() {
     // this.apiService.getFood().subscribe(res => {

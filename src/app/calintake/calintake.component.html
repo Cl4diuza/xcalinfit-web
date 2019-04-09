@@ -2,65 +2,153 @@
   <div class="col-xs-6 list-group-item clearfix">
     <form [formGroup]="calForm" (ngSubmit)="onSubmit()">
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="goal">Your goal: </label>
+            <select class="form-control" id="goal" formControlName="goal">
+              <option value="diet">weight loss</option>
+              <option value="stable">maintain weight</option>
+              <option value="gain">gian weight</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="sex">Sex:</label>
+            <div class="form-check-inline radio-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="sex"
+                id="male-sex"
+                formControlName="sex"
+                value="male"
+              />
+              <label class="form-check-label" for="male-sex">Male</label>
+            </div>
+            <div class="form-check-inline radio-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="sex"
+                id="female-sex"
+                formControlName="sex"
+                value="female"
+              />
+              <label class="form-check-label" for="female-sex">Female</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
           <div class="form-group">
             <label for="weight">Weight (kg)</label>
-            <input type="text" id="weight" formControlName="weight" class="form-control" />
+            <input
+              type="text"
+              id="weight"
+              formControlName="weight"
+              class="form-control"
+            />
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-6">
           <div class="form-group">
             <label for="height">Height (cm)</label>
-            <input type="text" id="height" formControlName="height" class="form-control" />
+            <input
+              type="text"
+              id="height"
+              formControlName="height"
+              class="form-control"
+            />
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-6">
           <div class="form-group">
             <label for="age">Age</label>
-            <input type="text" id="age" formControlName="age" class="form-control" />
+            <input
+              type="text"
+              id="age"
+              formControlName="age"
+              class="form-control"
+            />
           </div>
         </div>
       </div>
+      <hr />
       <div class="row">
-        <div class="col-xs-4">
+        <div class="col-xs-6">
           <div class="form-group">
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exercise" formControlName="exercise"
-                id="exampleRadios1" value="option1" checked>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exercise"
+                formControlName="exercise"
+                id="exampleRadios1"
+                value="vlight"
+                checked
+              />
               <label class="form-check-label" for="exampleRadios1">
-                Default radio
+                Very light - little to no exercise
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exercise" formControlName="exercise"
-                id="exampleRadios2" value="option2">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exercise"
+                formControlName="exercise"
+                id="exampleRadios2"
+                value="light"
+              />
               <label class="form-check-label" for="exampleRadios2">
-                Second default radio
+                Light - 1-3 hours per week
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exercise" formControlName="exercise"
-                id="exampleRadios3" value="option3">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exercise"
+                formControlName="exercise"
+                id="exampleRadios3"
+                value="moderate"
+              />
               <label class="form-check-label" for="exampleRadios3">
-                Third default radio
+                Moderate - 3-5 hours per week
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exercise" formControlName="exercise"
-                id="exampleRadios4" value="option4">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exercise"
+                formControlName="exercise"
+                id="exampleRadios4"
+                value="active"
+              />
               <label class="form-check-label" for="exampleRadios4">
-                Forth default radio
+                Active - a hour per day
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="exercise" formControlName="exercise"
-                id="exampleRadios5" value="option5">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="exercise"
+                formControlName="exercise"
+                id="exampleRadios5"
+                value="vactive"
+              />
               <label class="form-check-label" for="exampleRadios5">
-                Fifth default radio
+                Very Active - 2 hours per day
               </label>
             </div>
           </div>
@@ -73,15 +161,17 @@
       </div>
     </form>
   </div>
-  <div class="col-xs-6 list-group-item clearfix">
-    <p>Total calories intake: 2000 Cal/Day</p>
-    <p>Protein intake: 120g/Day , 480 cal</p>
-    <p>Carbohydrate intake: 200g/Day, 800 cal</p>
-    <p>Fat intake: 60g/Day, 540 cal</p>
-    <div class="row">
-      <div class="col-xs-12">
-        <button class="btn btn-success pull-center">Save</button>
+  <!-- <div class="row">
+    <div class="col-xs-6 list-group-item clearfix">
+      <p>Total calories intake: 2000 Cal/Day</p>
+      <p>Protein intake: 120g/Day , 480 cal</p>
+      <p>Carbohydrate intake: 200g/Day, 800 cal</p>
+      <p>Fat intake: 60g/Day, 540 cal</p>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success pull-center">Save</button>
+        </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
