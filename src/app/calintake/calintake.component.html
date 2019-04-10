@@ -1,10 +1,30 @@
+<ng-template [ngIf]="isCalculated">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="list-group-item clearfix" style="margin-top: 30px">
+        <p>BMR : {{ bmr }} Cal</p>
+        <p>Total calories per day: {{ totalCal }} Cal</p>
+        <p>Your goal calrories per day: {{ goalCal }} Cal</p>
+        <p>Recommend Daily Nutrient :</p>
+        <p>Protein intake: {{ proteinIntake }}g , {{ proteinCal }} cal</p>
+        <p>Carbohydrate intake: {{ carbIntake }}g , {{ carbCal }} cal</p>
+        <p>Fat intake: {{ fatIntake }}g , {{ fatCal }} cal</p>
+        <div class="row">
+          <div class="col-xs-12">
+            <button class="btn btn-success">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
 <div class="row">
-  <div class="col-xs-6 list-group-item clearfix">
-    <form [formGroup]="calForm" (ngSubmit)="onSubmit()">
+  <div class="col-md-12">
+    <form [formGroup]="calForm" (ngSubmit)="onCalculate()">
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-6 col-xs-offset-3">
           <div class="form-group">
-            <label for="goal">Your goal: </label>
+            <label for="goal" style="padding-top: 30px">Your goal :</label>
             <select class="form-control" id="goal" formControlName="goal">
               <option value="diet">weight loss</option>
               <option value="stable">maintain weight</option>
@@ -14,9 +34,9 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-6 col-xs-offset-3">
+          <label for="sex">Sex :</label>
           <div class="form-group">
-            <label for="sex">Sex:</label>
             <div class="form-check-inline radio-inline">
               <input
                 class="form-check-input"
@@ -43,7 +63,20 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input
+              type="text"
+              id="age"
+              formControlName="age"
+              class="form-control"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
           <div class="form-group">
             <label for="weight">Weight (kg)</label>
             <input
@@ -56,7 +89,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-6 col-xs-offset-3">
           <div class="form-group">
             <label for="height">Height (cm)</label>
             <input
@@ -68,23 +101,11 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-6">
-          <div class="form-group">
-            <label for="age">Age</label>
-            <input
-              type="text"
-              id="age"
-              formControlName="age"
-              class="form-control"
-            />
-          </div>
-        </div>
-      </div>
       <hr />
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-xs-6 col-xs-offset-3">
           <div class="form-group">
+            <label for="goal">Exercise :</label>
             <div class="form-check">
               <input
                 class="form-check-input"
@@ -92,7 +113,7 @@
                 name="exercise"
                 formControlName="exercise"
                 id="exampleRadios1"
-                value="vlight"
+                value="1.2"
                 checked
               />
               <label class="form-check-label" for="exampleRadios1">
@@ -106,7 +127,7 @@
                 name="exercise"
                 formControlName="exercise"
                 id="exampleRadios2"
-                value="light"
+                value="1.375"
               />
               <label class="form-check-label" for="exampleRadios2">
                 Light - 1-3 hours per week
@@ -119,7 +140,7 @@
                 name="exercise"
                 formControlName="exercise"
                 id="exampleRadios3"
-                value="moderate"
+                value="1.55"
               />
               <label class="form-check-label" for="exampleRadios3">
                 Moderate - 3-5 hours per week
@@ -132,7 +153,7 @@
                 name="exercise"
                 formControlName="exercise"
                 id="exampleRadios4"
-                value="active"
+                value="1.725"
               />
               <label class="form-check-label" for="exampleRadios4">
                 Active - a hour per day
@@ -145,7 +166,7 @@
                 name="exercise"
                 formControlName="exercise"
                 id="exampleRadios5"
-                value="vactive"
+                value="1.9"
               />
               <label class="form-check-label" for="exampleRadios5">
                 Very Active - 2 hours per day
@@ -155,23 +176,16 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-primary">Calculate</button>
+        <div class="col-xs-6 col-xs-offset-3">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="margin-bottom: 30px"
+          >
+            Calculate
+          </button>
         </div>
       </div>
     </form>
   </div>
-  <!-- <div class="row">
-    <div class="col-xs-6 list-group-item clearfix">
-      <p>Total calories intake: 2000 Cal/Day</p>
-      <p>Protein intake: 120g/Day , 480 cal</p>
-      <p>Carbohydrate intake: 200g/Day, 800 cal</p>
-      <p>Fat intake: 60g/Day, 540 cal</p>
-      <div class="row">
-        <div class="col-xs-12">
-          <button class="btn btn-success pull-center">Save</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
 </div>
