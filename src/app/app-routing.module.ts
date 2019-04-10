@@ -5,6 +5,7 @@ import { FoodComponent } from './food/food.component';
 import { CalintakeComponent } from './calintake/calintake.component';
 import { FoodDetailComponent } from './food/food-detail/food-detail.component';
 import { FoodEditComponent } from './food/food-edit/food-edit.component';
+import { ExampleComponent } from './example/example.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/foods', pathMatch: 'full' },
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
       { path: ':id/edit', component: FoodEditComponent }
     ]
   },
-  { path: 'calculate', component: CalintakeComponent }
+  { path: 'calculate', component: CalintakeComponent },
+  { path: 'example', component: ExampleComponent }
   // { path: 'signup', component: SignupComponent },
   // { path: 'signin', component: SigninComponent }
 ];

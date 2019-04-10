@@ -16,6 +16,7 @@ import { FoodStartComponent } from './food/food-start/food-start.component';
 import { FoodEditComponent } from './food/food-edit/food-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
+import { ExampleComponent } from './example/example.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     CalintakeComponent,
     FoodStartComponent,
     FoodEditComponent,
-    FooterComponent
+    FooterComponent,
+    ExampleComponent
   ],
   imports: [
     BrowserModule,
