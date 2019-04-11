@@ -10,13 +10,7 @@ import { Food } from './food.model';
   providers: [FoodService]
 })
 export class FoodComponent implements OnInit {
-  // selectedFood: Food;
-
   constructor(private foodService: FoodService) {}
 
-  ngOnInit() {
-    // this.foodService.foodSelected.subscribe((food: Food) => {
-    //   this.selectedFood = food;
-    // });
-  }
+  ngOnInit() {}
 }

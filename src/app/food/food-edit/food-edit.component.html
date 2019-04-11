@@ -1,103 +1,120 @@
-<div class="row">
+<div class="row" style="margin-left: 50px">
   <div class="col-xs-12">
-    <div class="list-group-item clearfix">
-      <form [formGroup]="foodForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group ">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                formControlName="name"
-                class="form-control"
-              />
-            </div>
+    <form class="edit-form" [formGroup]="foodForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-control"
+            />
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="form-group">
-              <label for="content">Content</label>
-              <input
-                type="text"
-                id="content"
-                formControlName="content"
-                class="form-control"
-              />
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-10">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input
+              type="text"
+              id="imagePath"
+              formControlName="imagePath"
+              class="form-control"
+              #imagePath
+            />
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-2">
-            <div class="form-group">
-              <label for="cal">Calories</label>
-              <input
-                type="text"
-                id="cal"
-                formControlName="cal"
-                class="form-control"
-              />
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img [src]="imagePath.value" class="img-responsive" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="content">Content</label>
+            <textarea
+              id="content"
+              formControlName="content"
+              class="form-control content-area"
+              row="5"
+            ></textarea>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-2">
-            <div class="form-group">
-              <label for="protein">Protein</label>
-              <input
-                type="text"
-                id="protein"
-                formControlName="protein"
-                class="form-control"
-              />
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <div class="form-group">
+            <label for="cal">Calories</label>
+            <input
+              type="text"
+              id="cal"
+              formControlName="cal"
+              class="form-control"
+            />
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-2">
-            <div class="form-group">
-              <label for="carb">Carbohydrate</label>
-              <input
-                type="text"
-                id="carb"
-                formControlName="carb"
-                class="form-control"
-              />
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <div class="form-group">
+            <label for="protein">Protein</label>
+            <input
+              type="text"
+              id="protein"
+              formControlName="protein"
+              class="form-control"
+            />
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-2">
-            <div class="form-group">
-              <label for="fat">Fat</label>
-              <input
-                type="text"
-                id="fat"
-                formControlName="fat"
-                class="form-control"
-              />
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <div class="form-group">
+            <label for="carb">Carbohydrate</label>
+            <input
+              type="text"
+              id="carb"
+              formControlName="carb"
+              class="form-control"
+            />
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="btn-group">
-              <button type="submit" class="btn btn-success">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                Save
-              </button>
-              <button type="button" class="btn btn-danger">
-                <span
-                  class="glyphicon glyphicon-remove"
-                  aria-hidden="true"
-                ></span>
-                Cancel
-              </button>
-            </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <div class="form-group">
+            <label for="fat">Fat</label>
+            <input
+              type="text"
+              id="fat"
+              formControlName="fat"
+              class="form-control"
+            />
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="btn-group">
+            <button type="submit" class="btn btn-success">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              Save
+            </button>
+            <button type="button" (click)="onCancel()" class="btn btn-danger">
+              <span
+                class="glyphicon glyphicon-remove"
+                aria-hidden="true"
+              ></span>
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

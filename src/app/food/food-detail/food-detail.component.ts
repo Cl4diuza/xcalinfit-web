@@ -12,6 +12,11 @@ import { Food } from './../food.model';
 export class FoodDetailComponent implements OnInit {
   food: Food;
   id: string;
+  calProgessBar: string;
+  proteinProgressBar: string;
+  carbProgressBar: string;
+  fatProgressBar: string;
+
   constructor(
     private foodService: FoodService,
     private route: ActivatedRoute,
@@ -22,10 +27,20 @@ export class FoodDetailComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.id = params.id;
       this.food = this.foodService.getFood(this.id);
+      this.calProgessBar = this.food.calories / 20 + '%';
+      this.proteinProgressBar = this.food.protein + '%';
+      this.carbProgressBar = this.food.carb + '%';
+      this.fatProgressBar = this.food.fat + '%';
     });
   }
 
   onEditFood() {
     this.router.navigate(['edit'], { relativeTo: this.route });
+  }
+
+  onDeleteFood() {
+    this.foodService.deleteFood(this.food.id);
+    this.router.navigate(['example']);
+    this.router.navigate(['foods']);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { Food } from './../food.model';
@@ -17,6 +17,7 @@ export class FoodEditComponent implements OnInit {
   foodForm: FormGroup;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private foodService: FoodService
   ) {}
@@ -31,11 +32,46 @@ export class FoodEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.foodForm);
+    let id: string;
+
+    if (this.editMode) {
+      id = this.foodForm.controls.id.value;
+    } else {
+      id = null;
+    }
+
+    const name: string = this.foodForm.controls.name.value;
+    const content: string = this.foodForm.controls.content.value;
+    const cal: number = this.foodForm.controls.cal.value;
+    const protein: number = this.foodForm.controls.protein.value;
+    const carb: number = this.foodForm.controls.carb.value;
+    const fat: number = this.foodForm.controls.fat.value;
+    const imagePath: string = this.foodForm.controls.imagePath.value;
+
+    const newFood = new Food(
+      id,
+      name,
+      content,
+      cal,
+      protein,
+      carb,
+      fat,
+      imagePath
+    );
+
+    this.foodService.createFood(newFood);
+
+    this.router.navigate(['foods']);
+  }
+
+  onCancel() {
+    this.router.navigate(['foods']);
   }
 
   private initForm() {
+    let foodId = '';
     let foodName = '';
+    let foodImagePath = '';
     let foodContent = '';
     let foodCalories;
     let foodProtein;
@@ -43,16 +79,20 @@ export class FoodEditComponent implements OnInit {
     let foodFat;
 
     if (this.editMode) {
-      foodName = this.foodService.getFood(this.id).name;
-      foodContent = this.foodService.getFood(this.id).content;
-      foodCalories = this.foodService.getFood(this.id).calories;
-      foodProtein = this.foodService.getFood(this.id).protein;
-      foodCarb = this.foodService.getFood(this.id).carb;
-      foodFat = this.foodService.getFood(this.id).fat;
+      foodId = this.food.id;
+      foodName = this.food.name;
+      foodImagePath = this.food.imagePath;
+      foodContent = this.food.content;
+      foodCalories = this.food.calories;
+      foodProtein = this.food.protein;
+      foodCarb = this.food.carb;
+      foodFat = this.food.fat;
     }
 
     this.foodForm = new FormGroup({
+      id: new FormControl(foodId),
       name: new FormControl(foodName),
+      imagePath: new FormControl(foodImagePath),
       content: new FormControl(foodContent),
       cal: new FormControl(foodCalories),
       protein: new FormControl(foodProtein),

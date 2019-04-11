@@ -21,8 +21,6 @@ const appRoutes: Routes = [
   },
   { path: 'calculate', component: CalintakeComponent },
   { path: 'example', component: ExampleComponent }
-  // { path: 'signup', component: SignupComponent },
-  // { path: 'signin', component: SigninComponent }
 ];
 
 @NgModule({

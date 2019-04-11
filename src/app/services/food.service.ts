@@ -1,5 +1,6 @@
-import { ApiService } from './api.service';
-import { Injectable, OnInit, EventEmitter } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { Food } from './../food/food.model';
 
@@ -7,82 +8,55 @@ import { Food } from './../food/food.model';
   providedIn: 'root'
 })
 export class FoodService implements OnInit {
-  private foods: Food[] = [
-    new Food(
-      '1',
-      'Pizza',
-      'Crispy delicious food',
-      500,
-      10,
-      50,
-      30,
-      'https://c1.staticflickr.com/4/3796/9509951988_a54e5a0a18_b.jpg'
-    ),
-    new Food(
-      '2',
-      'KFC',
-      'Fried chicken',
-      400,
-      20,
-      20,
-      20,
-      'https://c1.staticflickr.com/4/3796/9509951988_a54e5a0a18_b.jpg'
-    ),
-    new Food(
-      '3',
-      'Porridge',
-      'Bland',
-      200,
-      5,
-      12,
-      2,
-      'https://c1.staticflickr.com/4/3796/9509951988_a54e5a0a18_b.jpg'
-    ),
-    new Food(
-      '4',
-      'Chicken breast',
-      'raw',
-      80,
-      20,
-      0,
-      0,
-      'https://c1.staticflickr.com/4/3796/9509951988_a54e5a0a18_b.jpg'
-    ),
-    new Food(
-      '5',
-      'Pork',
-      'cooked',
-      150,
-      25,
-      0,
-      5,
-      'https://c1.staticflickr.com/4/3796/9509951988_a54e5a0a18_b.jpg'
-    )
-  ];
+  private headers: any;
+  private foods: Food[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {}
 
-  async fetchData() {
-    await this.apiService.getFood().subscribe(data => {
-      this.setFood(data);
+  public setFoods(foods) {
+    this.foods = foods;
+  }
+
+  public getFood(id: string) {
+    return this.foods.find(x => x.id === id);
+  }
+
+  public getFoods(): Observable<Food[]> {
+    const headers = new HttpHeaders();
+    this.headers = headers.set('Content-Type', 'appplication/json');
+
+    return this.http.get<Food[]>('http://localhost:40010/food/all', {
+      headers: this.headers
     });
   }
 
-  setFood(food) {
-    this.foods = food;
+  public createFood(foods) {
+    const headers = new HttpHeaders();
+    this.headers = headers.set('Content-Type', 'appplication/json');
+
+    this.http.post('http://localhost:40010/food/create', foods).subscribe(
+      data => {
+        console.log('POST Request is successful ', data);
+      },
+      error => {
+        console.log('POST Error', error);
+      }
+    );
   }
 
-  getFoods() {
-    // this.apiService.getFood().subscribe(res => {
-    //   this.foods = res;
-    // });
+  public deleteFood(id: string) {
+    const headers = new HttpHeaders();
+    this.headers = headers.set('Content-Type', 'appplication/json');
 
-    return this.foods.slice();
-  }
-
-  getFood(id: string) {
-    return this.foods.find(x => x.id === id);
+    this.http.delete('http://localhost:40010/food/delete/' + id).subscribe(
+      data => {
+        console.log('DEL Request is successful ', data);
+      },
+      error => {
+        console.log('DEL Error', error);
+      }
+    );
   }
 }

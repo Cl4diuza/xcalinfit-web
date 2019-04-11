@@ -10,12 +10,57 @@
           style="max-height: 200px;"
         />
         <h2 class="card-subtitle mb-2 text-muted">
-          Calories: {{ food.calories }}
+          <b>Calories </b> {{ food.calories }}
         </h2>
-        <p class="card-text">{{ food.content }}</p>
-        <p class="card-text">Protein: {{ food.protein }}</p>
-        <p class="card-text">Carbohydrate: {{ food.carb }}</p>
-        <p class="card-text">Fat: {{ food.fat }}</p>
+        <div class="row">
+          <div class="col-xs-10">
+            <div class="progress">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                [style.width]="calProgessBar"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="card-text">{{ food.content }}</h4>
+        <p class="card-text"><b>Protein </b> {{ food.protein }}</p>
+        <div class="row">
+          <div class="col-xs-10">
+            <div class="progress small-progres-bar">
+              <div
+                class="progress-bar progress-bar-success"
+                role="progressbar"
+                [style.width]="proteinProgressBar"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <p class="card-text"><b>Carbohydrate </b> {{ food.carb }}</p>
+        <div class="row">
+          <div class="col-xs-10">
+            <div class="progress small-progres-bar">
+              <div
+                class="progress-bar progress-bar-warning"
+                role="progressbar"
+                [style.width]="carbProgressBar"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <p class="card-text"><b>Fat </b> {{ food.fat }}</p>
+        <div class="row">
+          <div class="col-xs-10">
+            <div class="progress small-progres-bar">
+              <div
+                class="progress-bar progress-bar-danger"
+                role="progressbar"
+                [style.width]="fatProgressBar"
+              ></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -23,13 +68,10 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="btn-group">
-        <button class="btn btn-success">
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save
-        </button>
         <button (click)="onEditFood()" class="btn btn-primary">
           <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Edit
         </button>
-        <button class="btn btn-danger">
+        <button (click)="onDeleteFood()" class="btn btn-danger">
           <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
           Delete
         </button>

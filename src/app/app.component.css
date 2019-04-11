@@ -6,4 +6,5 @@
 
 .container {
   width: 150vh;
+  min-width: 1100px;
 }

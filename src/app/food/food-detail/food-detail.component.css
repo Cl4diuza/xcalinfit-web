@@ -4,4 +4,15 @@
 
 .btn-group {
   margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.small-progres-bar {
+  height: 12px;
+}
+
+.content-area {
+  margin: 0px 67.6563px 0px 0px;
+  width: 480px;
+  height: 73px;
 }

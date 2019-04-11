@@ -18,7 +18,10 @@ export class FoodListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.foods = this.foodService.getFoods();
+    this.foodService.getFoods().subscribe(res => {
+      this.foods = res;
+      this.foodService.setFoods(res);
+    });
   }
 
   onNewFood() {
