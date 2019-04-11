@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Food } from './../food/food.model';
+import { Food } from '../../food/food.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,9 +33,6 @@ export class FoodService implements OnInit {
   }
 
   public createFood(foods) {
-    const headers = new HttpHeaders();
-    this.headers = headers.set('Content-Type', 'appplication/json');
-
     this.http.post('http://localhost:40010/food/create', foods).subscribe(
       data => {
         console.log('POST Request is successful ', data);

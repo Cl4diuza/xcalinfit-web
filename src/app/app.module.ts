@@ -4,8 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { AuthComponent } from './auth/auth.component';
+import { HeaderComponent } from './shared//header/header.component';
 import { FoodComponent } from './food/food.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { FoodListComponent } from './food/food-list/food-list.component';
@@ -17,12 +16,13 @@ import { FoodEditComponent } from './food/food-edit/food-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { ExampleComponent } from './example/example.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AuthComponent,
     FoodComponent,
     DropdownDirective,
     FoodListComponent,
@@ -32,7 +32,9 @@ import { ExampleComponent } from './example/example.component';
     FoodStartComponent,
     FoodEditComponent,
     FooterComponent,
-    ExampleComponent
+    ExampleComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

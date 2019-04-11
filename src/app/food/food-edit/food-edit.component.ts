@@ -3,7 +3,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { Food } from './../food.model';
-import { FoodService } from './../../services/food.service';
+import { FoodService } from '../../shared/services/food.service';
 
 @Component({
   selector: 'app-food-edit',

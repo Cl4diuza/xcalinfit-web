@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form
+      class="register-form"
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="email">Email :</label>
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              formControlName="email"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="name">Profile Name :</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="password">Password :</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              formControlName="password"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <div class="form-group">
+            <label for="re-password">Confirm Password :</label>
+            <input
+              type="password"
+              id="re-password"
+              class="form-control"
+              formControlName="rePassword"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <button
+            type="submit"
+            class="btn btn-success"
+            [disabled]="!registerForm.valid"
+          >
+            Register
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

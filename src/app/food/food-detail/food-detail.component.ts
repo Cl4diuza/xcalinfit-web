@@ -1,4 +1,4 @@
-import { FoodService } from './../../services/food.service';
+import { FoodService } from '../../shared/services/food.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -30,7 +30,7 @@ export class FoodDetailComponent implements OnInit {
       this.calProgessBar = this.food.calories / 20 + '%';
       this.proteinProgressBar = this.food.protein + '%';
       this.carbProgressBar = this.food.carb + '%';
-      this.fatProgressBar = this.food.fat + '%';
+      this.fatProgressBar = this.food.fat * 2 + '%';
     });
   }
 
@@ -40,7 +40,8 @@ export class FoodDetailComponent implements OnInit {
 
   onDeleteFood() {
     this.foodService.deleteFood(this.food.id);
-    this.router.navigate(['example']);
+    // this.foodService.getFoods();
+    // this.router.navigate(['example's]);
     this.router.navigate(['foods']);
   }
 }

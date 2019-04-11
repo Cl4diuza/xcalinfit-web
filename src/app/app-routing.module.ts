@@ -6,6 +6,8 @@ import { CalintakeComponent } from './calintake/calintake.component';
 import { FoodDetailComponent } from './food/food-detail/food-detail.component';
 import { FoodEditComponent } from './food/food-edit/food-edit.component';
 import { ExampleComponent } from './example/example.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/foods', pathMatch: 'full' },
@@ -20,7 +22,9 @@ const appRoutes: Routes = [
     ]
   },
   { path: 'calculate', component: CalintakeComponent },
-  { path: 'example', component: ExampleComponent }
+  { path: 'example', component: ExampleComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
