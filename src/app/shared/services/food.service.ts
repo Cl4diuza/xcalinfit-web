@@ -26,6 +26,10 @@ export class FoodService implements OnInit {
   public getFoods(): Observable<Food[]> {
     const headers = new HttpHeaders();
     this.headers = headers.set('Content-Type', 'appplication/json');
+    this.headers = headers.set(
+      'Authorization',
+      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE1NTUwNjA4MjYsInVzZXJJZCI6IjVjYjA1ODVhYTJjOWFjMGFiNDljM2I0ZiJ9.wi3EyFF_jdOVydKmzobXpV-rCh-3JCSYdgmlFiyIWsM'
+    );
 
     return this.http.get<Food[]>('http://localhost:40010/food/all', {
       headers: this.headers
@@ -33,27 +37,45 @@ export class FoodService implements OnInit {
   }
 
   public createFood(foods) {
-    this.http.post('http://localhost:40010/food/create', foods).subscribe(
-      data => {
-        console.log('POST Request is successful ', data);
-      },
-      error => {
-        console.log('POST Error', error);
-      }
+    const headers = new HttpHeaders();
+    this.headers = headers.set('Content-Type', 'appplication/json');
+    this.headers = headers.set(
+      'Authorization',
+      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE1NTUwNjA4MjYsInVzZXJJZCI6IjVjYjA1ODVhYTJjOWFjMGFiNDljM2I0ZiJ9.wi3EyFF_jdOVydKmzobXpV-rCh-3JCSYdgmlFiyIWsM'
     );
+    this.http
+      .post('http://localhost:40010/food/create', foods, {
+        headers: this.headers
+      })
+      .subscribe(
+        data => {
+          console.log('POST Request is successful ', data);
+        },
+        error => {
+          console.log('POST Error', error);
+        }
+      );
   }
 
   public deleteFood(id: string) {
     const headers = new HttpHeaders();
     this.headers = headers.set('Content-Type', 'appplication/json');
-
-    this.http.delete('http://localhost:40010/food/delete/' + id).subscribe(
-      data => {
-        console.log('DEL Request is successful ', data);
-      },
-      error => {
-        console.log('DEL Error', error);
-      }
+    this.headers = headers.set(
+      'Authorization',
+      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVhdGVkQXQiOjE1NTUwNjA4MjYsInVzZXJJZCI6IjVjYjA1ODVhYTJjOWFjMGFiNDljM2I0ZiJ9.wi3EyFF_jdOVydKmzobXpV-rCh-3JCSYdgmlFiyIWsM'
     );
+
+    this.http
+      .delete('http://localhost:40010/food/delete/' + id, {
+        headers: this.headers
+      })
+      .subscribe(
+        data => {
+          console.log('DEL Request is successful ', data);
+        },
+        error => {
+          console.log('DEL Error', error);
+        }
+      );
   }
 }
